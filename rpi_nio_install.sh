@@ -59,4 +59,4 @@ echo
 echo SERVICE STARTED
 echo ---------------
 echo
-echo To use pubkeeper communication, configure nio.env and restart the nio service (sudo service nio restart)
+echo 'To use pubkeeper communication, configure nio.env and restart the nio service (sudo service nio restart)'
