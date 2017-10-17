@@ -60,4 +60,4 @@ echo SERVICE STARTED
 echo ---------------
 echo
 echo 'Success! nio has been successfully installed and an instance is now currently running on this machine.'
-echo 'If you would like to use pubkeeper communication, configure nio.env and restart the nio service (sudo service nio restart).'
+echo 'If you would like to use pubkeeper communication, update the file nio/projects/'$proj'/nio.env and restart the nio service (sudo service nio restart).'
