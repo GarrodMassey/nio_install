@@ -1,4 +1,4 @@
-read -p "Enter the path of your binary file (ex. ~/nio_lite-20171006-py3-none-any.whl): " binary
+read -p "Enter the path of your binary file (ex: nio_lite-20171006-py3-none-any.whl): " binary
 read -p "Enter a name for your project: " proj
 
 echo UPDATING INSTALLED PACKAGES
@@ -59,4 +59,4 @@ echo
 echo SERVICE STARTED
 echo ---------------
 echo
-echo 'To use pubkeeper communication, configure nio.env and restart the nio service (sudo service nio restart)'
+echo 'If you would like to use pubkeeper communication, configure nio.env and restart the nio service (sudo service nio restart)'
