@@ -25,7 +25,7 @@ fi
 
 sudo echo \
 '[Unit]
-Description=nio
+Description='$proj'
 After=network.target
 
 [Service]
@@ -36,8 +36,8 @@ KillMode=process
 #Restart=on-failure
 
 [Install]
-WantedBy=multi-user.target' > nio.service
-sudo mv nio.service /etc/systemd/system/.
+WantedBy=multi-user.target' > $proj.service
+sudo mv $proj.service /etc/systemd/system/.
 
 echo
 echo CREATING PROJECT
@@ -58,6 +58,5 @@ sudo systemctl start $proj.service
 echo
 echo SERVICE STARTED
 echo ---------------
-echo
 echo 'Success! nio has been successfully installed and an instance is now currently running on this machine.'
-echo 'If you would like to use pubkeeper communication, update the file nio/projects/'$proj'/nio.env and restart the nio service (sudo service nio restart).'
+echo 'If you would like to use pubkeeper communication, update the file nio/projects/'$proj'/nio.env and restart the nio service (sudo service '$proj' restart).'
