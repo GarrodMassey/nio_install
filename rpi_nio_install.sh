@@ -52,8 +52,8 @@ cd ..
 echo
 echo STARTING SERVICE
 echo ----------------
-sudo systemctl enable nio.service
-sudo systemctl start nio.service
+sudo systemctl enable $proj.service
+sudo systemctl start $proj.service
 
 echo
 echo SERVICE STARTED
