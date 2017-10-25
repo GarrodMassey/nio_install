@@ -1,18 +1,19 @@
 read -p "Enter the path of your binary file (ex: nio_lite-20171006-py3-none-any.whl): " binary
 read -p "Enter a name for your project: " proj
 
+echo
 echo UPDATING INSTALLED PACKAGES
 echo ---------------------------
-sudo apt-get update -y -qqq
-sudo apt-get dist-upgrade -y -qqq
+sudo apt-get update -y -q
+sudo apt-get dist-upgrade -y -qq
 sudo apt-get install vim -y -q
 sudo apt-get install --reinstall git -y -q
 
 echo
 echo INSTALLING PYTHON 3 AND PIP
 echo ---------------------------
-sudo apt-get install python3 -y
-sudo apt-get install python3-pip -y
+sudo apt-get install python3 -y -q
+sudo apt-get install python3-pip -y -q
 sudo pip3 install -U pip
 
 echo
