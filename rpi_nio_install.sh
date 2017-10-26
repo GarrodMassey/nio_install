@@ -1,15 +1,25 @@
 read -p "Enter the path of your binary file (ex: nio_lite-20171006-py3-none-any.whl): " binary
 read -p "Enter a name for your project: " proj
 
+echo
 echo UPDATING INSTALLED PACKAGES
 echo ---------------------------
-sudo apt-get update -y
-sudo apt-get dist-upgrade -y
-sudo apt-get install vim -y
-sudo apt-get install --reinstall git -y
-sudo apt-get install python3 -y
-sudo apt-get install python3-pip -y
+sudo apt-get update -y -q
+sudo apt-get dist-upgrade -y -qq
+sudo apt-get install vim -y -q
+sudo apt-get install --reinstall git -y -q
+
+echo
+echo INSTALLING PYTHON 3 AND PIP
+echo ---------------------------
+sudo apt-get install python3 -y -q
+sudo apt-get install python3-pip -y -q
 sudo pip3 install -U pip
+
+echo
+echo INSTALLING NIO CLI
+echo ------------------
+sudo pip3 install nio-cli -U
 
 echo
 echo LOOKING FOR EXISTING NIO BINARY
@@ -44,10 +54,8 @@ echo CREATING PROJECT
 echo ----------------
 mkdir -p nio/projects
 cd nio/projects/
-git clone https://github.com/niolabs/project_template.git $proj
-cd $proj/blocks
-git submodule update --init --recursive
-cd ..
+nio new $proj
+cd $proj
 
 echo
 echo STARTING SERVICE
