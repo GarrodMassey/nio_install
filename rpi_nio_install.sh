@@ -40,7 +40,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/pi/nio/projects/'$proj'
-ExecStart='`which nio_run`'
+ExecStart='`which niod`'
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 #Restart=on-failure
