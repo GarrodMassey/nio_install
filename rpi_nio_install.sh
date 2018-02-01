@@ -17,11 +17,6 @@ sudo apt-get install python3-pip -y -q
 sudo pip3 install -U pip
 
 echo
-echo INSTALLING NIO CLI
-echo ------------------
-sudo pip3 install nio-cli -U
-
-echo
 echo LOOKING FOR EXISTING NIO BINARY
 echo -------------------------------
 nio_location="$(which niod)"
