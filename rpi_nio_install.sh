@@ -1,11 +1,11 @@
-read -p "Enter the path of your binary file (ex: nio_lite-20171006-py3-none-any.whl): " binary
+read -p "Enter the version of your nio binary (ex: 20180130): " binary
 read -p "Enter a name for your project: " proj
 
 echo
 echo UPDATING INSTALLED PACKAGES
 echo ---------------------------
 sudo apt-get update -y -q
-sudo apt-get dist-upgrade -y -qq
+sudo apt-get upgrade -y -qq
 sudo apt-get install vim -y -q
 sudo apt-get install --reinstall git -y -q
 
@@ -17,20 +17,15 @@ sudo apt-get install python3-pip -y -q
 sudo pip3 install -U pip
 
 echo
-echo INSTALLING NIO CLI
-echo ------------------
-sudo pip3 install nio-cli -U
-
-echo
 echo LOOKING FOR EXISTING NIO BINARY
 echo -------------------------------
-nio_location="$(which nio_run)"
+nio_location="$(which niod)"
 
 if [ $nio_location ]; then
   echo ... FOUND AT $nio_location
 else
   echo ... INSTALLING NIO FROM SPECIFIED BINARY
-  sudo pip3 install $binary #nio_lite-20171006-py3-none-any.whl
+  sudo pip3 install `find ~ -name "nio_lite-$binary\-py3-none-any.whl" | head -n 1`
 fi
 
 sudo echo \
@@ -49,6 +44,8 @@ KillMode=process
 WantedBy=multi-user.target' > $proj.service
 sudo mv $proj.service /etc/systemd/system/.
 
+sudo iw dev wlan0 set power_save off
+
 echo
 echo CREATING PROJECT
 echo ----------------
@@ -60,10 +57,22 @@ cd $proj
 echo
 echo STARTING SERVICE
 echo ----------------
+sudo systemctl daemon-reload
 sudo systemctl enable $proj.service
 sudo systemctl start $proj.service
 
 echo
-echo SERVICE STARTED
+echo CHECKING STATUS
 echo ---------------
-echo 'Success! nio has been successfully installed and an instance is now currently running on this machine.'
+if which niod > /dev/null
+then
+	echo 'Success! nio has been installed in your environment.'
+	if ps ax | grep -v grep | grep niod > /dev/null
+	then
+		echo 'Your instance has started successfully'
+	else
+		echo 'Your instance cannot be started, please try starting it with "niod"'
+	fi
+else
+	echo 'Something went wrong. Please check the version of your nio binary and run this script again.'
+fi
