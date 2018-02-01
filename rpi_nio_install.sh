@@ -74,5 +74,5 @@ then
 		echo 'Your instance cannot be started, please try starting it with "niod"'
 	fi
 else
-	echo 'Something went wrong. Please check that the version of your nio binary and run this script again.'
+	echo 'Something went wrong. Please check the version of your nio binary and run this script again.'
 fi
