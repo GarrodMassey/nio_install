@@ -14,7 +14,6 @@ echo INSTALLING PYTHON 3 AND PIP
 echo ---------------------------
 sudo apt-get install python3 -y -q
 sudo apt-get install python3-pip -y -q
-sudo pip3 install -U pip
 
 echo
 echo LOOKING FOR EXISTING NIO BINARY
