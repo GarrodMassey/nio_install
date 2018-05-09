@@ -12,8 +12,7 @@ sudo apt-get install --reinstall git -y -q
 echo
 echo INSTALLING PYTHON3 AND PIP3
 echo ---------------------------
-sudo apt-get install python3 -y -q
-sudo apt-get install python3-dev -y -q
+sudo apt-get install python3 python3-dev -y -q
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 
