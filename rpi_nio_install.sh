@@ -5,14 +5,14 @@ read -p "Enter your Pubkeeper token: " pk_token
 echo
 echo UPDATING INSTALLED PACKAGES
 echo ---------------------------
-sudo apt-get update -y -q
-sudo apt-get install vim -y -q
-sudo apt-get install --reinstall git -y -q
+sudo apt update -y -q
+sudo apt install vim -y -q
+sudo apt install --reinstall git -y -q
 
 echo
 echo INSTALLING PYTHON3 AND PIP3
 echo ---------------------------
-sudo apt-get install python3 python3-dev -y -q
+sudo apt install python3 python3-dev -y -q
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 
