@@ -10,9 +10,10 @@ sudo apt-get install vim -y -q
 sudo apt-get install --reinstall git -y -q
 
 echo
-echo INSTALLING PYTHON 3 AND PIP
+echo INSTALLING PYTHON3 AND PIP3
 echo ---------------------------
 sudo apt-get install python3 -y -q
+sudo apt-get install python3-dev -y -q
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 
@@ -24,7 +25,7 @@ nio_location="$(which niod)"
 if [ $nio_location ]; then
   echo ... FOUND INSTALLED EXECUTABLE AT $nio_location
 else
-  echo ... INSTALLING NIO FROM BINARY
+  echo ... INSTALLING NIO FROM WHEEL FILE
   sudo pip3 install `find ~ -name "nio_lite-*-py3-none-any.whl" | head -n 1`
 fi
 
@@ -38,7 +39,6 @@ WorkingDirectory=/home/pi/nio/projects/'$proj'
 ExecStart='`which niod`'
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
-#Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target' > $proj.service
@@ -74,5 +74,5 @@ then
 		echo 'Your instance cannot be started, please try starting it with "niod"'
 	fi
 else
-	echo 'Something went wrong. Please check the version of your nio binary and run this script again.'
+	echo 'Something went wrong. Please see any errors in the console above and attempt to manually install the nio wheel.'
 fi
