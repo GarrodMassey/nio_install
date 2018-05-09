@@ -1,11 +1,11 @@
-read -p "Enter the version of your nio binary (ex: 20180130): " binary
 read -p "Enter a name for your project: " proj
+read -p "Enter your Pubkeeper hostname: " pk_host
+read -p "Enter your Pubkeeper token: " pk_token
 
 echo
 echo UPDATING INSTALLED PACKAGES
 echo ---------------------------
 sudo apt-get update -y -q
-sudo apt-get upgrade -y -qq
 sudo apt-get install vim -y -q
 sudo apt-get install --reinstall git -y -q
 
@@ -13,7 +13,8 @@ echo
 echo INSTALLING PYTHON 3 AND PIP
 echo ---------------------------
 sudo apt-get install python3 -y -q
-sudo apt-get install python3-pip -y -q
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
 
 echo
 echo LOOKING FOR EXISTING NIO BINARY
@@ -21,10 +22,10 @@ echo -------------------------------
 nio_location="$(which niod)"
 
 if [ $nio_location ]; then
-  echo ... FOUND AT $nio_location
+  echo ... FOUND INSTALLED EXECUTABLE AT $nio_location
 else
-  echo ... INSTALLING NIO FROM SPECIFIED BINARY
-  sudo pip3 install `find ~ -name "nio_lite-$binary\-py3-none-any.whl" | head -n 1`
+  echo ... INSTALLING NIO FROM BINARY
+  sudo pip3 install `find ~ -name "nio_lite-*-py3-none-any.whl" | head -n 1`
 fi
 
 sudo echo \
@@ -50,7 +51,7 @@ echo CREATING PROJECT
 echo ----------------
 mkdir -p nio/projects
 cd nio/projects/
-nio new $proj
+nio new $proj --pubkeeper-hostname $pk_host --pubkeeper-token $pk_token
 cd $proj
 
 echo
