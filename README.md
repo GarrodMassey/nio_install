@@ -12,12 +12,18 @@ To get your binary onto the Pi, run the following:
 scp nio_lite-20XXXXXX-py3-none-any.whl pi@XXX.XXX.XXX.XXX:~
 ```
 
-Download this script onto the Pi and give it executbable permission:
+### How To Run
+* One Line Install Command:
 ```
-chmod +x rpi_nio_install.sh
+bash -c "$(curl -s https://raw.githubusercontent.com/niolabs/nio_install/master/rpi_nio_install.sh)"
 ```
+* Download and Install:
+  * Download this script onto the Pi and give it executbable permission:
+  ```
+  chmod +x rpi_nio_install.sh
+  ```
 
-Finally run the install script:
-```
-./rpi_nio_install.sh
-```
+  * Finally run the install script:
+  ```
+  ./rpi_nio_install.sh
+  ```
