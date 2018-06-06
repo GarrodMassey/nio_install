@@ -14,7 +14,9 @@ echo INSTALLING PYTHON3 AND PIP3
 echo ---------------------------
 sudo apt install python3 python3-dev -y -q
 wget https://bootstrap.pypa.io/get-pip.py
-sudo python3 get-pip.py
+python3 get-pip.py --user
+echo ‘export PATH=/home/pi/.local/bin:$PATH’ >> ~/.bashrc
+source ~/.bashrc
 
 echo
 echo LOOKING FOR EXISTING NIO BINARY
@@ -25,7 +27,7 @@ if [ $nio_location ]; then
   echo ... FOUND INSTALLED EXECUTABLE AT $nio_location
 else
   echo ... INSTALLING NIO FROM WHEEL FILE
-  sudo pip3 install `find ~ -name "nio_lite-*-py3-none-any.whl" | head -n 1`
+  pip3 install `find ~ -name "nio_lite-*-py3-none-any.whl" | head -n 1` --user
 fi
 
 sudo echo \
