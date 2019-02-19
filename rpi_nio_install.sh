@@ -6,7 +6,7 @@ echo
 echo UPDATING INSTALLED PACKAGES
 echo ---------------------------
 sudo apt update -y -q
-sudo apt install --reinstall git -y -q
+sudo apt install git libssl-dev libffi-dev -y -q
 
 echo
 echo CHECKING PYTHON3 AND PIP
