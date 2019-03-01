@@ -44,7 +44,7 @@ cd nio
 virtualenv env
 source env/bin/activate
 cd ..
-pip install -U `find ~ -name "nio_lite-*-py3-none-any.whl" | head -n 1`
+pip install -U `find ~ -name "nio_full-*-py3-none-any.whl" | head -n 1`
 
 echo
 echo CHECKING INSTALL
