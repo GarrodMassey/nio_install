@@ -41,7 +41,7 @@ echo ----------------------------------------------
 pip3 install virtualenv --user
 mkdir -p nio
 cd nio
-virtualenv env
+virtualenv -p python3 env
 source env/bin/activate
 cd ..
 pip install -U `find ~ -name "nio_full-*-py3-none-any.whl" | head -n 1`
