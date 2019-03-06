@@ -10,7 +10,7 @@ This script can be run from a Raspberry Pi to create and run a new nio instance.
 * **Enter the path to your CA private key:** Used for generating SSL certificates, if left empty a new key will be created (recommended for most users).
 * **Enter the host where you will access your instance:** You must determine how you wish to access the Pi on your network, so that the generated SSL certificate matches the hostname to which you are trying to connect. If you already have a CA that you used in the previous steps, then you already know what value is needed here. Otherwise, it's generally recommended to use hostnames rather than IP addresses, which works as long as every device has a unique hostname. The default for your Pi is `raspberrypi.local` and will work provided that there is only one `raspberrypi.local` on the network. Alternatively you can use the IP address, however in DHCP networks this may change without notice. It is generally recommended to use `sudo raspi-config` to assign a new, unique hostname to the device, and to use that same name (plus `.local` suffix) for this field. This will also be the value that you use for the hostname when adding the instance to your system designer, for example `https://raspberrypi.local:8181`
 
-A nio binary must be copied onto the Pi for this script to install. Download your binary [from here](https://account.n.io/binaries/download), and then run the following command. to copy it onto your Pi.
+A nio binary must be copied onto the Pi for this script to install. Download your binary [from here](https://account.n.io/binaries/download), and then run the following command to copy it onto your Pi.
 
 **IMPORTANT:** Windows users skip this step, and [proceed here](#windows).
 ```
