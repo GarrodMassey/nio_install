@@ -36,7 +36,7 @@ fi
 if ! echo $PATH | grep '\.local/bin'; then
     echo UPDATING PATH
     echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
-    source ~/.bashrc
+    export PATH=$PATH:$HOME/.local/bin
 fi
 
 echo
