@@ -38,7 +38,6 @@ bash -c "$(curl -s https://raw.githubusercontent.com/niolabs/nio_install/master/
   wget https://raw.githubusercontent.com/niolabs/nio_install/master/rpi_nio_install.sh
   chmod +x rpi_nio_install.sh
   ```
-
   1. Execute the install script:
   ```
   ./rpi_nio_install.sh
