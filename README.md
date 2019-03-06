@@ -33,12 +33,12 @@ Once the Binary has been copied onto your Raspberry Pi, open an SSH session to t
 bash -c "$(curl -s https://raw.githubusercontent.com/niolabs/nio_install/master/rpi_nio_install.sh)"
 ```
 * or, Download and Run Manually:
-  1. Download this script onto the Pi and give it executbable permission:
+  * Download this script onto the Pi and give it executbable permission:
   ```
   wget https://raw.githubusercontent.com/niolabs/nio_install/master/rpi_nio_install.sh
   chmod +x rpi_nio_install.sh
   ```
-  1. Execute the install script:
+  * Execute the install script:
   ```
   ./rpi_nio_install.sh
   ```
