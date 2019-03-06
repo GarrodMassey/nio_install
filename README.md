@@ -30,7 +30,7 @@ To open an SSH connection start PuTTY from your Start Menu, enter the hostname o
 Once the Binary has been copied onto your Raspberry Pi, open an SSH session to the Pi, log in, and follow these steps to install nio:
 * One Line Install Command (recommended):
 ```
-bash -c "$(curl -s https://raw.githubusercontent.com/niolabs/nio_install/master/rpi_nio_install.sh)"
+bash -c "$(curl -s https://raw.githubusercontent.com/niolabs/nio_install/master/rpi_nio_install.sh) && source ~/.bashrc"
 ```
 * or, Download and Run Manually:
   * Download this script onto the Pi and give it executbable permission:
@@ -41,6 +41,7 @@ bash -c "$(curl -s https://raw.githubusercontent.com/niolabs/nio_install/master/
   * Execute the install script:
   ```
   ./rpi_nio_install.sh
+  source ~/.bashrc
   ```
 
 ### Start and Stop the Instance
