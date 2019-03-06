@@ -31,8 +31,12 @@ then
 else
 	wget https://bootstrap.pypa.io/get-pip.py
 	python3 get-pip.py --user
-	echo 'export PATH=/home/pi/.local/bin:$PATH' >> ~/.bashrc
-	source ~/.bashrc
+fi
+
+if ! echo $PATH | grep '\.local/bin'; then
+    echo UPDATING PATH
+    echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+    source ~/.bashrc
 fi
 
 echo
