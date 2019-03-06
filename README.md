@@ -44,6 +44,8 @@ bash -c "$(curl -s https://raw.githubusercontent.com/niolabs/nio_install/master/
   source ~/.bashrc
   ```
 
+If you haven't yet configured `git`, you may see a warning like `*** Please tell me who you are...`. This is safe to ignore.
+
 ### Start and Stop the Instance
 When the script finishes, a `systemd` service will have been created and started your new nio instance. This instance will start automatically when the Pi is turned on. You can control this instance with these commands:
 ```
