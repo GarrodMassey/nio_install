@@ -82,7 +82,7 @@ echo ----------------
 cd nio
 mkdir -p projects
 cd projects/
-nio new $proj --pubkeeper-hostname $pk_host --pubkeeper-token $pk_token
+nio new $proj --pubkeeper-hostname $pk_host --pubkeeper-token $pk_token --no-ssl
 cd $proj
 
 echo
