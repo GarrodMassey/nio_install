@@ -31,8 +31,12 @@ then
 else
 	wget https://bootstrap.pypa.io/get-pip.py
 	python3 get-pip.py --user
-	echo 'export PATH=/home/pi/.local/bin:$PATH' >> ~/.bashrc
-	source ~/.bashrc
+fi
+
+if ! echo $PATH | grep '\.local/bin'; then
+    echo UPDATING PATH
+    echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+    export PATH=$PATH:$HOME/.local/bin
 fi
 
 echo
@@ -41,10 +45,10 @@ echo ----------------------------------------------
 pip3 install virtualenv --user
 mkdir -p nio
 cd nio
-virtualenv env
+virtualenv -p python3 env
 source env/bin/activate
 cd ..
-pip install -U `find ~ -name "nio_lite-*-py3-none-any.whl" | head -n 1`
+pip install -U `find ~ -name "nio_full-*-py3-none-any.whl" | head -n 1`
 
 echo
 echo CHECKING INSTALL
