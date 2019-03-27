@@ -1,4 +1,4 @@
-read -p "Enter a name for your project: " proj
+read -p "Enter a name for your instance: " proj
 read -p "Enter your Pubkeeper hostname: " pk_host
 read -p "Enter your Pubkeeper token: " pk_token
 
@@ -82,7 +82,7 @@ echo ----------------
 cd nio
 mkdir -p projects
 cd projects/
-nio new $proj --pubkeeper-hostname $pk_host --pubkeeper-token $pk_token --no-ssl
+nio new $proj --pubkeeper-hostname $pk_host --pubkeeper-token $pk_token
 cd $proj
 
 echo
